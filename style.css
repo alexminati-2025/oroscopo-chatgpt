@@ -1,0 +1,33 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #2e003e, #000);
+  color: #fff;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, button {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background-color: #a34cf4;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c47aff;
+}
