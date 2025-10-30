@@ -5,15 +5,10 @@ from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
 from gpt4all import GPT4All
 
-# =======================
-# Creazione app Flask e modello GPT
-# =======================
 app = Flask(__name__)
 model = GPT4All("orca-mini-3b-gguf2-q4_0.gguf")
 
-# =======================
 # Route per file statici
-# =======================
 @app.route("/")
 def home():
     return send_from_directory(".", "index.html")
@@ -22,9 +17,8 @@ def home():
 def static_proxy(path):
     return send_from_directory(".", path)
 
-# =======================
+
 # Funzioni astrologiche
-# =======================
 def get_coordinates(city, retries=3):
     geolocator = Nominatim(user_agent="oroscopo_app", timeout=10)
     for _ in range(retries):
@@ -62,9 +56,7 @@ def calcola_tema_natale(data, ora, luogo):
         "ascendente": get_zodiac_sign(ascendente)
     }
 
-# =======================
 # Route principale /oroscopo
-# =======================
 @app.route("/oroscopo", methods=["POST"])
 def oroscopo():
     try:
@@ -106,8 +98,8 @@ def oroscopo():
     except Exception as e:
         return jsonify({"error": f"Errore nel calcolo del tema: {e}"}), 500
 
-# =======================
+
 # Avvio app
-# =======================
+
 if __name__ == "__main__":
     app.run(debug=True)
