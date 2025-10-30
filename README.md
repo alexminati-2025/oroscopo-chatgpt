@@ -1,5 +1,5 @@
 # oroscopo-chatgpt
-oroscopo e tema natale
+oroscopo e tema natale solo DEbian e Linux 
 
 verificare se e installato python o python3 facendo 
 
